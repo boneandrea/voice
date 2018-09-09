@@ -6,9 +6,8 @@
 
 ## 準備
 ```
-virtualenv -p python3 env
-pip install Flask
-mkdir app ; cd app
-vi server.py
+./bin/init
 ```
 
+## 起動
+python app/server.py
