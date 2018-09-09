@@ -1,25 +1,40 @@
 from flask import Flask
+from flask import render_template, jsonify
+
 app = Flask(__name__)
+
 
 @app.route('/')
 def hello():
     name = "Hello World."
-    return name
+    return render_template('index.html', name=name)
+
 
 @app.route('/good')
 def good():
     name = "Good"
     return name
 
-## おまじない
+
+@app.route('/bad')
+def bad():
+    name = "Hey, B.A.D."
+    return render_template('bad.html', name=name)
+
+
+@app.route('/json')
+def json():
+    name = "Hey, B.A.D."
+    data = {"data": name}
+    return jsonify(data), 200
+
+# おまじない
 if __name__ == "__main__":
     app.run(debug=True, host='0.0.0.0', port=5002)
 
 
-
 # 以下のPHPをこちらに移す
 # testも書くか
-
 
 
 # // データ追記するだけ
